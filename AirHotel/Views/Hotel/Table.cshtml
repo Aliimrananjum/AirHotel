@@ -1,0 +1,12 @@
+﻿@model HotelListViewModel
+
+
+
+<h1>List of appartments (@Model.CurrentViewName View)</h1>
+<a href="/Hotel/Grid">Grid View</a>
+<a href="/Hotel/Card">Card</a>
+
+
+
+<partial name="_ItemTable" model="Model.Hotels" />
+

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<OrderItem>
+
+<div class="container">
+    <table class='table table-striped' style='max-width: 1200px;'>
+        <tr>
+            <th>OrderItemId</th>
+            <th>HotelId</th>
+            <th>Hotel</th>
+            <th>Total days</th>
+            <th>Total Amount</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var orderItem in Model)
+        {
+            <tr>
+                <td>@orderItem.OrderItemId</td>
+                <td>@orderItem.HotelId</td>
+                <td>@orderItem.Hotel.HotelName</td>
+                <td>@orderItem.Quantity</td>
+                <td>@orderItem.OrderItemPrice</td>
+                <td></td>
+            </tr>
+        }
+    </table>
+</div>

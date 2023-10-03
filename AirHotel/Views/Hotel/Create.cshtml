@@ -1,0 +1,31 @@
+﻿@model Hotel
+
+
+<div class="container">
+<h2>Create New Hotel</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="HotelName"></label><span class="text-danger">*</span>
+        <input asp-for="HotelName" class="form-control" />
+        <span asp-validation-for="HotelName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label><span class="text-danger">*</span>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HotelDescription"></label>
+        <input asp-for="HotelDescription" class="form-control" />
+        <span asp-validation-for="HotelDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Card" class="btn btn-secondary">Back to Card View</a>
+</form>
+</div>

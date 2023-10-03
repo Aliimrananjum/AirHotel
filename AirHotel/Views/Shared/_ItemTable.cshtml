@@ -1,0 +1,21 @@
+﻿@model IEnumerable<AirHotel.Models.Hotel>
+
+<div class="container">
+    <table class='table table-striped'>
+        <tr><th>Id</th><th>Name</th><th>Price</th><th>Description</th></tr>
+        @foreach (var hotel in Model)
+        {
+            <tr>
+                <td>@hotel.HotelId</td>
+                <td>
+                    <a asp-controller="Hotel"
+                       asp-action="Details"
+                       asp-route-id="@hotel.HotelId">@hotel.HotelName</a>
+                </td>
+                <td>@hotel.Price.ToString("0.00 NOK")</td>
+                <td>@hotel.HotelDescription</td>
+                <td></td>
+            </tr>
+        }
+    </table>
+</div>

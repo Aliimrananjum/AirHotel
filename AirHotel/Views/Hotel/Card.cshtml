@@ -1,0 +1,31 @@
+﻿@model HotelListViewModel
+
+<h1>CARD VIEW (@Model.CurrentViewName View)</h1>
+<a href="/Hotel/Grid">Grid View</a>
+<a href="/Hotel/Table">Table View</a>
+
+
+<h1>@Model.CurrentViewName</h1>
+<div class="container">
+    <div class="row">
+        
+        @foreach (var hotel in Model.Hotels)
+        {
+           <partial name="_Card" model=hotel />
+        }
+        
+    </div>
+
+    <p>
+        <a class="btn btn-primary"
+           asp-controller="Hotel"
+           asp-action="Create">
+            Registrer nytt rom
+        </a>
+    </p>
+
+    <a class="btn btn-primary" asp-action="OrderConsole">Console Output</a>
+
+
+      
+</div>
