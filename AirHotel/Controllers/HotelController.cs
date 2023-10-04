@@ -2,6 +2,7 @@
 using AirHotel.Models;
 using AirHotel.ViewModels;
 using AirHotel.DAL;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AirHotel.Controllers
 {
@@ -45,15 +46,17 @@ namespace AirHotel.Controllers
             }
        
 
-            [HttpGet]
-            public IActionResult Create(){
+        [HttpGet]
+        [Authorize]
+        public IActionResult Create(){
                 return View();
             }
 
   
 
-           [HttpPost]
-           public async Task<IActionResult> Create(Hotel hotel)
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Create(Hotel hotel)
            {
                if (ModelState.IsValid)
                {
@@ -64,6 +67,7 @@ namespace AirHotel.Controllers
            }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Update(int id)
         {
             var item = await _hotelRepository.GetEntitylById(id);
@@ -75,6 +79,7 @@ namespace AirHotel.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Update(Hotel hotel)
         {
             if (ModelState.IsValid)
@@ -87,6 +92,7 @@ namespace AirHotel.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             var item = await _hotelRepository.GetEntitylById(id);
@@ -98,6 +104,7 @@ namespace AirHotel.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _hotelRepository.Delete(id);

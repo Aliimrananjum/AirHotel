@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AirHotel.ViewModels;
 using AirHotel.DAL;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AirHotel.Controllers
 {
@@ -26,6 +27,7 @@ namespace AirHotel.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> CreateOrderItem()
         {
             var hotels = await _hotelRepository.GetAll();
@@ -50,6 +52,7 @@ namespace AirHotel.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateOrderItem(OrderItem orderItem)
         {
             try
